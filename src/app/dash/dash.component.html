@@ -1,0 +1,29 @@
+<div class=" bg-gradient-to-br from-gray-600 to-zinc-800">
+  <mat-grid-list cols="2" rowHeight="350px">
+    <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
+      <mat-card class="dashboard-card ; bg-slate-400">
+        <mat-card-header>
+          <mat-card-title class="text-green-50 ; border-t-8 ; border-t-slate-400 ">
+            {{card.title}}
+            <button mat-icon-button class="more-button ; border-t-8 ; border-t-slate-400" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu" xPosition="before">
+              <button mat-menu-item>Expand</button>
+              <button mat-menu-item>Remove</button>
+              <button mat-menu-item>Edit</button>
+            </mat-menu>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+          <div> 
+          <p>Texto aleatorio apenas para povoar o dashboard</p>
+          <p *ngIf="card.title == '3° item'">porem para este precisa de mais texto, então gerei aleatoriamente no word</p>
+          <img *ngIf="card.title == '3° item'" src="https://bourhaouta.gallerycdn.vsassets.io/extensions/bourhaouta/tailwindshades/0.0.5/1592520164095/Microsoft.VisualStudio.Services.Icons.Default">
+            <img class="box-border hover:box-content" src="https://i.pinimg.com/originals/7b/be/9c/7bbe9c289e3a6be3c03e658e819ba3c1.jpg" >
+        </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
